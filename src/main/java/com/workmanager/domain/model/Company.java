@@ -1,17 +1,34 @@
 package com.workmanager.domain.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 // Entité métier : une entreprise (en cours d'écriture).
+@Entity
 public class Company {
 
+    @Id
     private UUID id;
+
+    @Column(nullable = false)
     private String name;
+
     private String description;
+
+    @Column(nullable = false)
     private String email;
+
+    @Column(nullable = false)
     private LocalDateTime createdAt;
+
     private LocalDateTime updatedAt;
+
+    // constructeur
+    protected Company() {}
 
     // constructeur pour enregistrer une nouvelle entreprise
     // (génère l'UUID et la date de création)

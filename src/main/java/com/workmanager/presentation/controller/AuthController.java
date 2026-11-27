@@ -39,4 +39,9 @@ public class AuthController {
     public UserResponse me(Authentication authentication) {
         return UserResponse.from(authService.getCurrentUser(authentication.getName()));
     }
+
+    @PostMapping("/logout")
+    public ResponseEntity<UserResponse> logout(Authentication authentication) {
+        return ResponseEntity.ok(UserResponse.from(authService.getCurrentUser(authentication.getName())));
+    }
 }
